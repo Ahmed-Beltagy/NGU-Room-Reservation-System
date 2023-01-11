@@ -1,0 +1,87 @@
+﻿<link rel="stylesheet" href="~/css/Buttons.css">
+<link rel="stylesheet" href="~/css/Button2.css">
+
+@model test1.Models.Address
+
+@{
+    ViewData["Title"] = "Adding a Room";
+}
+
+<h1 style="color: #e55743;"><em>Add new room</em></h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="roomName" class="control-label"></label>
+                <input asp-for="roomName" class="form-control" />
+                <br />
+                <span asp-validation-for="roomName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Capacity" class="control-label"></label>
+                <input asp-for="Capacity" class="form-control" />
+                <br />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Public" class="control-label">Public(1), Privte(0)</label>
+                <input asp-for="Public" class="form-control" />
+                <br />
+                <span asp-validation-for="Public" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <br />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="buildingName" class="control-label"></label>
+                <input asp-for="buildingName" class="form-control" />
+                @*<br />*@
+                <span asp-validation-for="buildingName" class="text-danger"></span>
+            </div>
+                <br />
+                <br />
+                <button class="button">
+	                Add
+	                <div class="button__horizontal"></div>
+	                <div class="button__vertical"></div>
+                </button>
+                <br />
+            @ViewBag.message
+        </form>
+    </div>
+</div>
+
+<div>
+   <br />
+    <br />
+    <a asp-area="" asp-controller="Room" asp-action="Index" class="cta">
+      <span style="font-size: 1em">Back to Room Managment.</span>
+      <svg width="13px" height="10px" viewBox="0 0 13 10">
+        <path d="M1,5 L11,5"></path>
+        <polyline points="8 1 12 5 8 9"></polyline>
+      </svg>
+    </a>    
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<footer style="
+   text-align: center;
+   color: #ffab9d;
+   bottom: 0;
+   width: 92%;
+   height: 30px;
+   background: white;">
+    <p>© New Giza University. New Giza, Km 22 Cairo-Alex Road.</p>
+</footer>

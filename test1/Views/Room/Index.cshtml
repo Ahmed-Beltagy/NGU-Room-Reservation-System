@@ -1,0 +1,93 @@
+﻿<link rel="stylesheet" href="~/css/Buttons.css">
+@{
+    ViewData["Title"] = "Display Data";
+    string[] tabley = new string[] {"roomName"
+                  ,"Capacity"
+                  ,"Public"
+                  ,"Type"
+                  ,"buildingName"};
+}
+
+<p style="text-align: center; color: #ffab9d;">Available Rooms.</p>
+
+<div class="table">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                    @{
+                        foreach(var head in tabley)
+                        {
+                            <th>
+                                @head
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+        
+        <tbody>
+            @{
+            if (Model != null)
+            {
+                foreach(var Data in Model)
+                {
+                    <tr>
+                        <td>@Data.roomName</td>
+                        <td>@Data.Capacity</td>
+                        <td>@Data.Public</td>
+                        <td>@Data.Type</td>
+                        <td>@Data.buildingName</td>
+                    </tr>
+                }
+                
+            }
+        }
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <a asp-area="" asp-controller="Room" asp-action="Create" class="cta">
+      <span style="font-size: 1em">Add New Room.</span>
+      <svg width="13px" height="10px" viewBox="0 0 13 10">
+        <path d="M1,5 L11,5"></path>
+        <polyline points="8 1 12 5 8 9"></polyline>
+      </svg>
+    </a>    
+    <br />
+    <br />
+    <br />
+    <br />
+    <a asp-area="" asp-controller="Room" asp-action="Delete" class="cta">
+      <span style="font-size: 1em">Remove Existing Room..</span>
+      <svg width="13px" height="10px" viewBox="0 0 13 10">
+        <path d="M1,5 L11,5"></path>
+        <polyline points="8 1 12 5 8 9"></polyline>
+      </svg>
+    </a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <a asp-area="" asp-controller="Room" asp-action="Edit" class="cta">
+      <span style="font-size: 1em">Update Existing Room..</span>
+      <svg width="13px" height="10px" viewBox="0 0 13 10">
+        <path d="M1,5 L11,5"></path>
+        <polyline points="8 1 12 5 8 9"></polyline>
+      </svg>
+    </a>
+    <br />
+    <br />
+    <br />
+    <br />
+
+</div>
+
+<footer style="
+   text-align: center;
+   color: #ffab9d;
+   bottom: 0;
+   width: 92%;
+   height: 30px;
+   background: white;">
+    <p>© New Giza University. New Giza, Km 22 Cairo-Alex Road.</p>
+</footer>
